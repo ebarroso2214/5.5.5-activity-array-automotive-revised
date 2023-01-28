@@ -83,6 +83,51 @@ class Vehicle {
 
 //Code the Car subclass here, i.e. class Car extends Vehicle ...
 
+class Car extends Vehicle {
+	constructor (make, model, year, color, mileage){
+		super(make, model, year, color, mileage);
+		this.maximumPassengers = 5;
+		this.passenger = 0;
+		this.numberOfWheels = 4;
+		this.maximunSpeed = 160;
+		this.fuel = 10;
+		this.scheduleService = false;
+	}
+
+	loadPassenger(num){
+		this.num = num;
+		if(num + this.passenger <= this.maximumPassengers){
+			console.log("There was enough space")
+			
+		} else {
+			console.log("There was not enough space")
+		}
+	}
+
+
+	start(){
+		if (this.fuel > 0 ){
+			let start = true 
+			if (start == true) {
+				console.log("The car has started!")
+			}
+		} else {
+			console.log("This car has no gas!")
+		}
+	}
+	scheduledService(){
+		if (this.mileage === 30000){
+			this.scheduleService = true
+		}
+
+		if (this.scheduleService === true){
+			console.log("Maintenance Required!")
+		} else {
+			console.log("Not due for service yet")
+		}
+	}
+	
+	
 
 
 
@@ -91,6 +136,9 @@ class Vehicle {
 
 
 
+
+
+}
 //Creating Instances and Testing Them
 
 
@@ -104,11 +152,12 @@ console.log(v.make);
 
 
 //Create new instances of the Car class and test them here:
+let newMercury = new Car ("Mercury", "A28","1965","black",155)
 
 
-
-
-
+newMercury.loadPassenger(5)
+newMercury.start()
+newMercury.scheduledService()
 
 
 
